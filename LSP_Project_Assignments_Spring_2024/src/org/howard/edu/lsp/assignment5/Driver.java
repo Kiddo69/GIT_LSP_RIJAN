@@ -9,19 +9,24 @@ import static org.junit.platform.engine.discovery.DiscoverySelectors.selectClass
 
 public class Driver {
 
-    public static void main(String[] args) {
-        LauncherDiscoveryRequest request = LauncherDiscoveryRequestBuilder.request()
-            .selectors(
-                selectClass(IntegerSetTest.class)
-            )
-            .build();
+	public static void main(String[] args) {
+	    LauncherDiscoveryRequest request = LauncherDiscoveryRequestBuilder.request()
+	        .selectors(
+	            selectClass(IntegerSetTest.class)
+	        )
+	        .build();
 
-        Launcher launcher = LauncherFactory.create();
-        SummaryGeneratingListener listener = new SummaryGeneratingListener();
-        launcher.registerTestExecutionListeners(listener);
-        launcher.execute(request);
+	    Launcher launcher = LauncherFactory.create();
+	    SummaryGeneratingListener listener = new SummaryGeneratingListener();
+	    launcher.registerTestExecutionListeners(listener);
+	    launcher.execute(request);
 
-        // Print the test summary to the console
-        System.out.println(listener.getSummary());
-    }
+	    // Access the summary details and print them out
+	    String summary = listener.getSummary().getTestsSucceededCount() + " tests succeeded, "
+	                   + listener.getSummary().getTestsFailedCount() + " tests failed, "
+	                   + listener.getSummary().getTestsSkippedCount() + " tests skipped.";
+	    System.out.println(summary);
+	}
+
+
 }

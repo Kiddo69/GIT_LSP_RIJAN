@@ -115,15 +115,14 @@ public class IntegerSet {
         }
     }
 
-    // Set complement, all elements not in s1
-    public void complement(IntegerSet intSetb) {
-        List<Integer> complement = new ArrayList<Integer>();
-        for (int i = Integer.MIN_VALUE; i <= Integer.MAX_VALUE; i++) {
+    public void complement(IntegerSet universe) throws IntegerSetException {
+        for (int i = universe.smallest(); i <= universe.largest(); i++) {
             if (!this.contains(i)) {
-                complement.add(i);
+                this.add(i);
+            } else {
+                this.remove(i);
             }
         }
-        set = complement;
     }
 
     // Returns true if the set is empty, false otherwise

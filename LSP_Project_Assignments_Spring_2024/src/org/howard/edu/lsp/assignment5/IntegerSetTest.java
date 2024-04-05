@@ -4,7 +4,6 @@ import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import java.util.ArrayList;
 
 public class IntegerSetTest {
     private IntegerSet set;
@@ -49,7 +48,7 @@ public class IntegerSetTest {
 
     @Test
     @DisplayName("Test case for largest")
-    public void testLargest() {
+    public void testLargest() throws IntegerSetException {
         assertEquals(3, set.largest());
     }
 
@@ -106,12 +105,17 @@ public class IntegerSetTest {
 
     @Test
     @DisplayName("Test case for complement")
-    public void testComplement() {
-        set.complement(set);
+    public void testComplement() throws IntegerSetException {
+        IntegerSet universe = new IntegerSet();
+        universe.add(1);
+        universe.add(2);
+        universe.add(3);
+        set.complement(universe);
         assertFalse(set.contains(1));
         assertFalse(set.contains(2));
         assertFalse(set.contains(3));
     }
+
 
     @Test
     @DisplayName("Test case for isEmpty")
