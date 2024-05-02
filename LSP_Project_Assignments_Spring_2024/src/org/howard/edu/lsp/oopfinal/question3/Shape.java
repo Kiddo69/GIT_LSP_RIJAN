@@ -1,5 +1,5 @@
 package org.howard.edu.lsp.oopfinal.question3;
 
-public class Driver {
-
+public interface Shape {
+	void draw();
 }
