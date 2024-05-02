@@ -13,11 +13,11 @@ public class Driver {
 
         // Getting songs for a genre
         Set<String> rapSongs = db.getSongs("Rap");
-        System.out.println("Rap Songs: " + rapSongs); // Should print [Savage]
+        System.out.println("Rap Songs: " + rapSongs);
 
         // Getting the genre of a song
-        System.out.println("Genre of 'Savage': " + db.getGenreOfSong("Savage")); // Should print "Rap"
-        System.out.println("Genre of 'Always There': " + db.getGenreOfSong("Always There")); // Should print "Jazz"
+        System.out.println("Genre of 'Savage': " + db.getGenreOfSong("Savage"));
+        System.out.println("Genre of 'Always There': " + db.getGenreOfSong("Always There"));
     }
 }
 
