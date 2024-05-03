@@ -4,11 +4,11 @@ public class Client {
     public static void main(String[] args) {
         ShapeFactory factory = new ShapeFactory();
 
-        // Create Circle
+        // Create Circle 
         Shape circle = factory.createShape("Circle");
         circle.draw();
 
-        // Create Rectangle
+        // Create Rectangle 
         Shape rectangle = factory.createShape("Rectangle");
         rectangle.draw();
     }
